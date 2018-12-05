@@ -1,3 +1,19 @@
+# Installation and usage
+1. Set token values etc. in the `.env` file.
+2. Run the bot server:
+```bash
+node bot.js
+```
+3. Install localtunnel *globally*:
+```bash
+npm install -g localtunnel
+```
+4. Run localtunnel:
+```bash
+lt --port 3000 --subdomain advicebot
+```
+If advicebot.localtunnel.me is taken, it probably means that someone else is running server.
+
 # Botkit Starter Kit for Slack Bots
 
 This repo contains everything you need to get started building a Slack bot with [Botkit](https://botkit.ai) and [Botkit Studio](https://botkit.ai).
