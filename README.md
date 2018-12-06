@@ -14,6 +14,15 @@ lt --port 3000 --subdomain advicebot
 ```
 If advicebot.localtunnel.me is taken, it probably means that someone else is running server.
 
+if working with your own bot: 
+create new app https://api.slack.com/apps?new_app=1 and run 
+```bash
+lt --port 3000 --subdomain {namebot}
+```
+then add in Oatuh & Permissions: https://{namebot}.localtunnel.me/oauth 
+in Envent subscriptions Request Url: https://{namebot}.localtunnel.me/slack/receive
+on https://{namebot}.localtunnel.me login and authorize bot to slack workspace
+
 # Botkit Starter Kit for Slack Bots
 
 This repo contains everything you need to get started building a Slack bot with [Botkit](https://botkit.ai) and [Botkit Studio](https://botkit.ai).
