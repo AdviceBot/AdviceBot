@@ -1,5 +1,7 @@
-.db
+node_modules/
+dist/
+temp/
+.idea/
+coverage
 .env
-node_modules
-components/routes/_*
-.sass-cache/*
+npm-debug.log

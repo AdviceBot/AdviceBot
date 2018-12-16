@@ -1,126 +1,210 @@
-# Installation and usage
-1. Set token values etc. in the `.env` file.
-2. Run the bot server:
-```bash
-node bot.js
-```
-3. Install localtunnel *globally*:
-```bash
-npm install -g localtunnel
-```
-4. Run localtunnel:
-```bash
-lt --port 3000 --subdomain advicebot
-```
-If advicebot.localtunnel.me is taken, it probably means that someone else is running server.
+<h1 align="center" style="border-bottom: none;">🚀 Food Coach Demo</h1>
+<h3 align="center">This application demonstrates how the Watson Assistant (formerly Conversation) service can be adapted to use Tone Analyzer's tone along with intents and entities in a simple chat interface.</h3>
+<p align="center">
+  <a href="http://travis-ci.org/watson-developer-cloud/food-coach">
+    <img alt="Travis" src="https://travis-ci.org/watson-developer-cloud/food-coach.svg?branch=master">
+  </a>
+  <a href="#badge">
+    <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
+  </a>
+</p>
+</p>
 
-# Botkit Starter Kit for Slack Bots
+![Demo GIF](readme_images/demo.gif?raw=true)
 
-This repo contains everything you need to get started building a Slack bot with [Botkit](https://botkit.ai) and [Botkit Studio](https://botkit.ai).
+Demo: http://food-coach.ng.bluemix.net/
 
-Botkit is designed to ease the process of designing and running useful, creative bots that live inside messaging platforms. Bots are applications that can send and receive messages, and in many cases, appear alongside their human counterparts as users.
+For more information on the Assistant service, see the [detailed documentation](https://console.bluemix.net/docs/services/conversation/index.html#about).
+For more information on the Tone Analyzer Service, see the [detailed documentation](http://www.ibm.com/watson/developercloud/tone-analyzer.html).
 
-Some bots talk like people, others silently work in the background, while others present interfaces much like modern mobile applications. Botkit gives developers the necessary tools for building bots of any kind! It provides an easy-to-understand interface for sending and receiving messages so that developers can focus on creating novel applications and experiences instead of dealing with API endpoints.
+## Deploying the application
 
-Our goal with Botkit is to make bot building easy, fun, and accessible to anyone with the desire to create a future filled with talking machines!
+If you want to experiment with the application or use it as a basis for building your own application, you need to deploy it in your own environment. You can then explore the files, make changes, and see how those changes affect the running application. After making modifications, you can deploy your modified version of the application to IBM Cloud.
 
-If you are looking to create a bot on other platforms using Glitch, check out the [Botkit project page](https://glitch.com/botkit).
+## Prerequisites
 
-### What's Included
-* [Botkit core](https://botkit.ai/docs/core.html) - a complete programming system for building conversational software
-* [Pre-configured Express.js webserver](https://expressjs.com/) including:
-   * A customizable "Install my Bot" homepage
-   * Login and oauth endpoints that allow teams to install your bot
-   * Webhook endpoints for communicating with platforms
-* Sample skill modules that demonstrate various features of Botkit
-* A customizable onboarding experience for new teams powered by Botkit Studio
+1. Sign up for an [IBM Cloud account](https://console.bluemix.net/registration/).
+1. Download the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/index.html#overview).
+1. Create an instance of the Watson Assistant service and get your credentials:
+    - Go to the [Watson Assistant](https://console.bluemix.net/catalog/services/conversation) page in the IBM Cloud Catalog.
+    - Log in to your IBM Cloud account.
+    - Click **Create**.
+    - Click **Show** to view the service credentials.
+    - Copy the `apikey` value, or copy the `username` and `password` values if your service instance doesn't provide an `apikey`.
+    - Copy the `url` value.
+1. Create an instance of the Tone Analyzer service and get your credentials:
+    - Go to the [Tone Analyzer](https://console.bluemix.net/catalog/services/tone-analyzer) page in the IBM Cloud Catalog.
+    - Log in to your IBM Cloud account.
+    - Click **Create**.
+    - Click **Show** to view the service credentials.
+    - Copy the `apikey` value, or copy the `username` and `password` values if your service instance doesn't provide an `apikey`.
+    - Copy the `url` value.
 
-### Getting Started
+## Configuring the application
 
-There are a myriad of methods you can use to set up an application on Slack, here are some of your options:
+1. In your IBM Cloud console, open the Watson Assistant service instance
 
-#### Install Botkit
+2. Click the **Import workspace** icon in the Watson Assistant service tool. Specify the location of the workspace JSON file in your local copy of the app project:
 
-[Remix this project on Glitch](https://glitch.com/~botkit-slack)
+   `<project_root>/food-coach/training/food-coach-workspace.json`
 
-[Deploy to Heroku](https://heroku.com/deploy?template=https://github.com/howdyai/botkit-starter-slack/master)
+3. Select **Everything (Intents, Entities, and Dialog)** and then click **Import**. The car dashboard workspace is created.
 
-Clone this repository using Git:
+4. Click the menu icon in the upper-right corner of the workspace tile, and then select **View details**.
 
-`git clone https://github.com/howdyai/botkit-starter-slack.git`
+5. Click the ![Copy](readme_images/copy.png) icon to copy the workspace ID to the clipboard.
 
-Install dependencies, including [Botkit](https://github.com/howdyai/botkit):
+    ![Steps to get credentials](https://github.com/watson-developer-cloud/assistant-simple/raw/master/readme_images/assistant-simple.gif)
 
-```
-cd botkit-starter-slack
-npm install
-```
+6. In the application folder, copy the *.env.example* file and create a file called *.env*
 
-#### Set up your Slack Application 
-Once you have setup your Botkit development enviroment, the next thing you will want to do is set up a new Slack application via the [Slack developer portal](https://api.slack.com/). This is a multi-step process, but only takes a few minutes. 
+    ```
+    cp .env.example .env
+    ```
 
-* [Read this step-by-step guide](https://botkit.ai/docs/provisioning/slack-events-api.html) to make sure everything is set up. 
+7. Open the *.env* file and add the service credentials that you obtained in the previous step.
 
-* We also have this [handy video walkthrough](https://youtu.be/us2zdf0vRz0) for setting up this project with Glitch.
+    Example *.env* file that configures the `apikey` and `url` for a Watson Assistant service instance hosted in the US East region:
 
-Update the `.env` file with your newly acquired tokens.
+    ```
+    ASSISTANT_IAM_APIKEY=X4rbi8vwZmKpXfowaS3GAsA7vdy17Qh7km5D6EzKLHL2
+    ASSISTANT_URL=https://gateway-wdc.watsonplatform.net/assistant/api
+    ```
 
-Launch your bot application by typing:
+    If your service instance uses `username` and `password` credentials, add the `ASSISTANT_USERNAME` and `ASSISTANT_PASSWORD` variables to the *.env* file.
 
-`node .`
+    Example *.env* file that configures the `username`, `password`, and `url` for a Watson Assistant service instance hosted in the US South region:
 
-Now, visit your new bot's login page: http://localhost:3000/login
+    ```
+    ASSISTANT_USERNAME=522be-7b41-ab44-dec3-g1eab2ha73c6
+    ASSISTANT_PASSWORD=A4Z5BdGENrwu8
+    ASSISTANT_URL=https://gateway.watsonplatform.net/assistant/api
+    ```
 
-Now comes the fun part of [making your bot!](https://botkit.ai/docs/#build-your-bot)
+8. Add the `WORKSPACE_ID` to the previous properties
 
-
-### Extend This Starter kit
-
-This starter kit is designed to provide developers a robust starting point for building a custom bot. Included in the code are a set of sample bot "skills" that illustrate various aspects of the Botkit SDK features.  Once you are familiar with how Botkit works, you may safely delete all of the files in the `skills/` subfolder.
-
-Developers will build custom features as modules that live in the `skills/` folder. The main bot application will automatically include any files placed there.
-
-A skill module should be in the format:
-
-```
-module.exports = function(controller) {
-
-    // add event handlers to controller
-    // such as hears handlers that match triggers defined in code
-    // or controller.studio.before, validate, and after which tie into triggers
-    // defined in the Botkit Studio UI.
-
-}
-```
-
-Continue your journey to becoming a champion botmaster by [reading the Botkit Studio SDK documentation here.](https://github.com/howdyai/botkit/blob/master/docs/readme-studio.md)
+    ```
+    WORKSPACE_ID=522be-7b41-ab44-dec3-g1eab2ha73c6
+    ```
 
 
-### Customize Storage
+9. Your `.env` file  should looks like:
 
-By default, the starter kit uses a simple file-system based storage mechanism to record information about the teams and users that interact with the bot. While this is fine for development, or use by a single team, most developers will want to customize the code to use a real database system.
+    ```
+    # Environment variables
+    WORKSPACE_ID=1c464fa0-2b2f-4464-b2fb-af0ffebc3aab
+    ASSISTANT_IAM_APIKEY=_5iLGHasd86t9NddddrbJPOFDdxrixnOJYvAATKi1
+    ASSISTANT_URL=https://gateway-syd.watsonplatform.net/assistant/api
 
-There are [Botkit plugins for all the major database systems](https://botkit.ai/readme-middlewares.html#storage-modules) which can be enabled with just a few lines of code.
+    TONE_ANALYZER_IAM_APIKEY=UdHqOFLzoOCFD2M50AbsasdYhOnLV6sd_C3ua5zah
+    TONE_ANALYZER_URL=https://gateway-syd.watsonplatform.net/tone-analyzer/api
+    ```
 
-We have enabled our [Mongo middleware]() for starters in this project. To use your own Mongo database, just fill out `MONGO_URI` in your `.env` file with the appropriate information. For tips on reading and writing to storage, [check out these medium posts](https://botkit.groovehq.com/knowledge_base/categories/build-a-bot)
+## Running locally
 
-# Developer & Support Community
+1. Install the dependencies
 
-You can find full documentation for Botkit on our [GitHub page](https://github.com/howdyai/botkit/blob/master/readme.md). Botkit Studio users can access the [Botkit Studio Knowledge Base](https://botkit.groovehq.com/help_center) for help in managing their account.
+    ```
+    npm install
+    ```
 
-###  Need more help?
-* Glitch allows users to ask the community for help directly from the editor! For more information on raising your hand, [read this blog post.](https://medium.com/glitch/just-raise-your-hand-how-glitch-helps-aa6564cb1685)
+1. Run the application
 
-* Join our thriving community of Botkit developers and bot enthusiasts at large. Over 4500 members strong, [our open Slack group](http://community.botkit.ai) is _the place_ for people interested in the art and science of making bots. 
+    ```
+    npm start
+    ```
 
- Come to ask questions, share your progress, and commune with your peers!
+1. View the application in a browser at `localhost:3000`
 
-* We also host a [regular meetup and annual conference called TALKABOT.](http://talkabot.ai) Come meet and learn from other bot developers! 
- 
- [Full video of our 2016 event is available on Youtube.](https://www.youtube.com/playlist?list=PLD3JNfKLDs7WsEHSal2cfwG0Fex7A6aok)
+## Deploying to IBM Cloud as a Cloud Foundry Application
+
+1. Login to IBM Cloud with the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/index.html#overview)
+
+    ```
+    ibmcloud login
+    ```
+
+1. Target a Cloud Foundry organization and space.
+
+    ```
+    ibmcloud target --cf
+    ```
+
+1. Edit the *manifest.yml* file. Change the **name** field to something unique.  
+  For example, `- name: my-app-name`.
+1. Deploy the application
+
+    ```
+    ibmcloud app push
+    ```
+
+1. View the application online at the app URL.  
+For example: https://my-app-name.mybluemix.net
 
 
+# What to do next
 
-# About Botkit
+After you have the application installed and running, experiment with it to see how it responds to your input.
 
-Botkit is a product of [Howdy](https://howdy.ai) and made in Austin, TX with the help of a worldwide community of botheads.
+## Modifying the application
+
+After you have the application deployed and running, you can explore the source files and make changes. Try the following:
+
+   * Modify the .js files to change the application logic.
+
+   * Modify the .html file to change the appearance of the application page.
+
+   * Use the Assistant tool to train the service for new intents, or to modify the dialog flow. For more information, see the [Assistant service documentation](https://console.bluemix.net/docs/services/conversation/index.html#about).
+
+# What does the Food Coach application do?
+
+The application interface is designed for chatting with a coaching bot. Based on the time of day, it asks you if you've had a particular meal (breakfast, lunch, or dinner) and what you ate for that meal.
+
+The chat interface is in the left panel of the UI, and the JSON response object returned by the Assistant service in the right panel. Your input is run against a small set of sample data trained with the following intents:
+
+    yes: acknowledgment that the specified meal was eaten
+    no: the specified meal was not eaten
+    help
+    exit
+
+The dialog is also trained on two types of entities:
+
+    food items
+    unhealthy food items
+
+These intents and entities help the bot understand variations your input.
+
+After asking you what you ate (if a meal was consumed), the bot asks you how you feel about it. Depending on your emotional tone, the bot provides different feedback.
+
+Below you can find some sample interactions:
+
+![Alt text](readme_images/examples.jpeg?raw=true)
+
+In order to integrate the Tone Analyzer with the Assistant service, the following approach was taken:
+   * Intercept the user's message. Before sending it to the Assistant service, invoke the Tone Analyzer Service. See the call to `toneDetection.invokeToneAsync` in the `invokeToneConversation` function in [app.js](./app.js).
+   * Parse the JSON response object from the Tone Analyzer Service, and add appropriate variables to the context object of the JSON payload to be sent to the Assistant service. See the `updateUserTone` function in [tone_detection.js](./addons/tone_detection.js).
+   * Send the user input, along with the updated context object in the payload to the Assistant service. See the call to `assistant.message` in the `invokeToneConversation` function in [app.js](./app.js).
+
+
+You can see the JSON response object from the Assistant service in the right hand panel.
+
+![Alt text](readme_images/tone_context.jpeg?raw=true)
+
+In the conversation template, alternative bot responses were encoded based on the user's emotional tone. For example:
+
+![Alt text](readme_images/rule.png?raw=true)
+
+
+# License
+
+  This sample code is licensed under Apache 2.0.
+  Full license text is available in [LICENSE](LICENSE).
+
+# Contributing
+
+  See [CONTRIBUTING](CONTRIBUTING.md).
+
+## Open Source @ IBM
+
+  Find more open source projects on the
+  [IBM Github Page](http://ibm.github.io/).
