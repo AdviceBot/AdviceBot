@@ -67,6 +67,7 @@ var bot_options = {
     clientId: process.env.clientId,
     clientSecret: process.env.clientSecret,
     clientSigningSecret: process.env.clientSigningSecret,
+    stats_optout: true,
     // debug: true,
     scopes: ['bot'],
     studio_token: process.env.studio_token,
@@ -82,8 +83,20 @@ if (process.env.MONGO_URI) {
     bot_options.json_file_store = __dirname + '/.data/db/'; // store user data in a simple JSON format
 }
 
+const watsonMiddleware = require('botkit-middleware-watson')({
+    iam_apikey: process.env.watsonApiKey,
+    url: process.env.watsonUrl,
+    workspace_id: process.env.watsonWorkspaceId,
+    version: '2018-07-10',
+  });
+
+
 // Create the Botkit controller, which controls all instances of the bot.
 var controller = Botkit.slackbot(bot_options);
+
+
+controller.middleware.receive.use(watsonMiddleware.receive);
+// slackBot.startRTM();
 
 controller.startTicking();
 
@@ -91,9 +104,6 @@ controller.startTicking();
 var webserver = require(__dirname + '/components/express_webserver.js')(controller);
 
 if (!process.env.clientId || !process.env.clientSecret) {
-
-  // Load in some helpers that make running Botkit on Glitch.com better
-  require(__dirname + '/components/plugin_glitch.js')(controller);
 
   webserver.get('/', function(req, res){
     res.render('installation', {
@@ -124,47 +134,22 @@ if (!process.env.clientId || !process.env.clientSecret) {
   // Send an onboarding message when a new team joins
   require(__dirname + '/components/onboarding.js')(controller);
 
-  // Load in some helpers that make running Botkit on Glitch.com better
-  require(__dirname + '/components/plugin_glitch.js')(controller);
 
-  // enable advanced botkit studio metrics
-  require('botkit-studio-metrics')(controller);
+
 
   var normalizedPath = require("path").join(__dirname, "skills");
   require("fs").readdirSync(normalizedPath).forEach(function(file) {
-    require("./skills/" + file)(controller);
+    require("./skills/" + file)(controller, watsonMiddleware);
   });
 
-  // This captures and evaluates any message sent to the bot as a DM
-  // or sent to the bot in the form "@bot message" and passes it to
-  // Botkit Studio to evaluate for trigger words and patterns.
-  // If a trigger is matched, the conversation will automatically fire!
-  // You can tie into the execution of the script using the functions
-  // controller.studio.before, controller.studio.after and controller.studio.validate
-  if (process.env.studio_token) {
-      controller.on('direct_message,direct_mention,mention', function(bot, message) {
-          controller.studio.runTrigger(bot, message.text, message.user, message.channel, message).then(function(convo) {
-              if (!convo) {
-                  // no trigger was matched
-                  // If you want your bot to respond to every message,
-                  // define a 'fallback' script in Botkit Studio
-                  // and uncomment the line below.
-                  // controller.studio.run(bot, 'fallback', message.user, message.channel);
-              } else {
-                  // set variables here that are needed for EVERY script
-                  // use controller.studio.before('script') to set variables specific to a script
-                  convo.setVar('current_time', new Date());
-              }
-          }).catch(function(err) {
-              bot.reply(message, 'I experienced an error with a request to Botkit Studio: ' + err);
-              debug('Botkit Studio: ', err);
-          });
-      });
-  } else {
-      console.log('~~~~~~~~~~');
-      console.log('NOTE: Botkit Studio functionality has not been enabled');
-      console.log('To enable, pass in a studio_token parameter with a token from https://studio.botkit.ai/');
-  }
+  controller.hears(['.*'], ['direct_message', 'direct_mention', 'mention'], function(bot, message) {
+    if (message.watsonError) {
+      bot.reply(message, "I'm sorry, but for technical reasons I can't respond to your message");
+    } else {
+      bot.reply(message, message.watsonData.output.text.join('\n'));
+    }
+  });
+
 }
 
 
