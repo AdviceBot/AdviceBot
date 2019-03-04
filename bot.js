@@ -89,8 +89,13 @@ const watsonMiddleware = require('botkit-middleware-watson')({
     workspace_id: process.env.watsonWorkspaceId,
     version: '2018-07-10',
   });
-
-
+var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
+const toneAnalyzer = new ToneAnalyzerV3({
+    version: '2016-05-19',
+    iam_apikey: process.env.watsonToneAnalyzerApiKey,
+    url: process.env.watsonToneAnalyzerUrl,
+    workspace_id: process.env.watsonWorkspaceId
+});
 // Create the Botkit controller, which controls all instances of the bot.
 var controller = Botkit.slackbot(bot_options);
 
@@ -134,7 +139,46 @@ if (!process.env.clientId || !process.env.clientSecret) {
   // Send an onboarding message when a new team joins
   require(__dirname + '/components/onboarding.js')(controller);
 
+  function invokeToneAsync(message, toneAnalyzer) {
+    return new Promise(function(resolve, reject) {
+      toneAnalyzer.tone({
+        text: message.text
+      }, (error, data) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(data);
+        }
+      });
+    });
+  }
 
+  function simplifyTone(original) {
+    const tones = original
+        .document_tone
+        .tone_categories
+        .map(category => category.tones)
+        .reduce((x, y) => x.concat(y));
+
+    const tone = tones.reduce((obj, item) => {
+        obj[item.tone_id] = item.score;
+        return obj;
+    }, {});
+
+
+  }
+
+  watsonMiddleware.before = function(message, assistantPayload, callback) {
+    invokeToneAsync(message, toneAnalyzer).then((tone)=> {
+        assistantPayload.context.tone = simplifyTone(tone);
+
+        callback(null, assistantPayload);
+    }).catch(err => {
+        console.log(err);
+        console.log('error analysing tone');
+        callback(err, null);
+    });
+  }
 
 
   var normalizedPath = require("path").join(__dirname, "skills");
@@ -144,9 +188,9 @@ if (!process.env.clientId || !process.env.clientSecret) {
 
   controller.hears(['.*'], ['direct_message', 'direct_mention', 'mention'], function(bot, message) {
     if (message.watsonError) {
-      bot.reply(message, "I'm sorry, but for technical reasons I can't respond to your message");
+        bot.reply(message, "I'm sorry, but for technical reasons I can't respond to your message");
     } else {
-      bot.reply(message, message.watsonData.output.text.join('\n'));
+        bot.reply(message, message.watsonData.output.text.join('\n'));
     }
   });
 
