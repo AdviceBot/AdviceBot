@@ -164,12 +164,13 @@ if (!process.env.clientId || !process.env.clientSecret) {
         obj[item.tone_id] = item.score;
         return obj;
     }, {});
-
-
+    return tone;
   }
 
   watsonMiddleware.before = function(message, assistantPayload, callback) {
     invokeToneAsync(message, toneAnalyzer).then((tone)=> {
+
+        if (!assistantPayload.context) assistantPayload.context = {};
         assistantPayload.context.tone = simplifyTone(tone);
 
         callback(null, assistantPayload);
