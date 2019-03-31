@@ -1,0 +1,112 @@
+{
+    "trips": [
+
+        {
+            "name": "Wawel Cathedral",
+            "address": "https://bit.ly/2CJDipX",
+            "emotions": ["joyful", "tentative"]
+        },
+        {
+            "name": "GOjump Kraków Park Trampolin",
+            "address": "https://bit.ly/2TIpRwr",
+            "emotions": ["joyful"]
+        },
+        {
+            "name": "Ogrod Doswiadczen im. St. Lema",
+            "address": "https://bit.ly/2CLSm6D",
+            "emotions": ["joyful"]
+        },
+        {
+            "name": "Wieliczka Salt Mine",
+            "address": "https://bit.ly/2FwrVSQ",
+            "emotions": ["sad"]
+        },
+        {
+            "name": "Galeria Figur Stalowych",
+            "address": "https://bit.ly/2JONlQx",
+            "emotions": ["sad"]
+        },
+        {
+            "name": "Kraków Cloth Hall",
+            "address": "https://bit.ly/2YzOAGU",
+            "emotions": ["sad"]
+        },
+        {
+            "name": "Polonia Wax Museum",
+            "address": "https://bit.ly/2CK75PE",
+            "emotions": ["analytical"]
+        },
+        {
+            "name": "Gestapo Headquarters",
+            "address": "https://bit.ly/2FDb68W",
+            "emotions": ["analytical", "confident"]
+        },
+        {
+            "name": "Executioner Museum",
+            "address": "https://bit.ly/2OALNZh",
+            "emotions": ["analytical"]
+        },
+        {
+            "name": "Planty Park",
+            "address": "https://bit.ly/2K4dRG3",
+            "emotions": ["fear"]
+        },
+        {
+            "name": "Krakus Mound",
+            "address": "https://bit.ly/2FFr2aC",
+            "emotions": ["fear"]
+        },
+        {
+            "name": "Kraków Zoo",
+            "address": "https://bit.ly/2uAulLf",
+            "emotions": ["fear"]
+        },
+        {
+            "name": "Museum of Ancient Art",
+            "address": "https://bit.ly/2UkAU34",
+            "emotions": ["tentative", "analytical"]
+        },
+        {
+            "name": "Amber Museum",
+            "address": "https://bit.ly/2I0VChO",
+            "emotions": ["tentative", "joyful"]
+        },
+        {
+            "name": "Zywe Muzeum Obwarzanka",
+            "address": "https://bit.ly/2WEAbYf",
+            "emotions": ["tentative"]
+        },
+        {
+            "name": "Ojców National Park",
+            "address": "https://bit.ly/2OxRTcV",
+            "emotions": ["anger"]
+        },
+        {
+            "name": "Park Lotnikow Polskich",
+            "address": "https://bit.ly/2HYDEfX",
+            "emotions": ["anger"]
+        },
+        {
+            "name": "Water Park in Cracow",
+            "address": "https://bit.ly/2Wr2t8m",
+            "emotions": ["anger"]
+        },
+        {
+            "name": "Czartoryski Museum",
+            "address": "https://bit.ly/2HKt9NW",
+            "emotions": ["confident", "analytical"]
+        },
+        {
+            "name": "National Museum",
+            "address": "https://bit.ly/2FAfSUM",
+            "emotions": ["confident"]
+        },
+        {
+            "name": "Lost Souls Alley",
+            "address": "https://bit.ly/2HM20Kz",
+            "emotions": ["confident", "analytical"]
+        }
+    ]
+
+
+}
