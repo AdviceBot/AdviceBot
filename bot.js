@@ -1,56 +1,3 @@
-/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-           ______     ______     ______   __  __     __     ______
-          /\  == \   /\  __ \   /\__  _\ /\ \/ /    /\ \   /\__  _\
-          \ \  __<   \ \ \/\ \  \/_/\ \/ \ \  _"-.  \ \ \  \/_/\ \/
-           \ \_____\  \ \_____\    \ \_\  \ \_\ \_\  \ \_\    \ \_\
-            \/_____/   \/_____/     \/_/   \/_/\/_/   \/_/     \/_/
-
-
-This is a sample Slack bot built with Botkit.
-
-This bot demonstrates many of the core features of Botkit:
-
-* Connect to Slack using the real time API
-* Receive messages based on "spoken" patterns
-* Reply to messages
-* Use the conversation system to ask questions
-* Use the built in storage system to store and retrieve information
-  for a user.
-
-# RUN THE BOT:
-
-  Create a new app via the Slack Developer site:
-
-    -> http://api.slack.com
-
-  Get a Botkit Studio token from Botkit.ai:
-
-    -> https://studio.botkit.ai/
-
-  Run your bot from the command line:
-
-    clientId=<MY SLACK TOKEN> clientSecret=<my client secret> PORT=<3000> studio_token=<MY BOTKIT STUDIO TOKEN> node bot.js
-
-# USE THE BOT:
-
-    Navigate to the built-in login page:
-
-    https://<myhost.com>/login
-
-    This will authenticate you with Slack.
-
-    If successful, your bot will come online and greet you.
-
-
-# EXTEND THE BOT:
-
-  Botkit has many features for building cool and useful bots!
-
-  Read all about it here:
-
-    -> http://howdy.ai/botkit
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 var env = require('node-env-file');
 env(__dirname + '/.env');
 
@@ -62,6 +9,7 @@ if (!process.env.clientId || !process.env.clientSecret || !process.env.PORT) {
 
 var Botkit = require('botkit');
 var debug = require('debug')('botkit:main');
+var attractions = require('./attractions.json');
 
 var bot_options = {
     clientId: process.env.clientId,
@@ -181,6 +129,23 @@ if (!process.env.clientId || !process.env.clientSecret) {
     });
   }
 
+  function findRecommendedAttraction(emotion) {
+    const trips = attractions.trips;
+    const tripsForEmotion = trips
+        .filter(trip => trip.emotions.includes(emotion));
+
+    if (tripsForEmotion.length === 0)
+        return null;
+
+    return tripsForEmotion[Math.floor(Math.random()*tripsForEmotion.length)];
+  }
+
+  function buildRecommendationMessage(trip) {
+    if (!trip)
+        return 'I could not find anything interesting for your current emotional state :-( Maybe just stay at home with a cup of tea?';
+
+    return `How about *${trip.name}*?. \nHere is the location: ${trip.address}. Do you want to go?`;
+  }
 
   var normalizedPath = require("path").join(__dirname, "skills");
   require("fs").readdirSync(normalizedPath).forEach(function(file) {
@@ -191,14 +156,25 @@ if (!process.env.clientId || !process.env.clientSecret) {
     if (message.watsonError) {
         bot.reply(message, "I'm sorry, but for technical reasons I can't respond to your message");
     } else {
-        bot.reply(message, message.watsonData.output.text.join('\n'));
+        const output = message.watsonData.output.text;
+
+        console.log(message.watsonData);
+        if (message.watsonData.actions) {
+            const actions = message.watsonData.actions;
+            for (action of actions) {
+                if (action.name == 'recommendAttraction') {
+                    const trip = findRecommendedAttraction(action.parameters.emotion);
+                    output.push(buildRecommendationMessage(trip));
+                }
+            }
+        }
+
+        bot.reply(message, output.join('\n'));
+
     }
   });
 
 }
-
-
-
 
 
 function usage_tip() {
