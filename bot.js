@@ -163,9 +163,13 @@ if (!process.env.clientId || !process.env.clientSecret) {
     return recommendationsByUser.get(user);
   }
 
-  function findRecommendedAttraction(emotion) {
+  function findRecommendedAttraction(emotion, user) {
+    const lastTrip = getLastRecommendationForUser(user);
+    const lastTripName = lastTrip ? lastTrip.name : null;
+
     const trips = attractions.trips;
     const tripsForEmotion = trips
+        .filter(trip => trip.name != lastTripName)
         .filter(trip => trip.emotions.includes(emotion));
 
     if (tripsForEmotion.length === 0)
@@ -182,7 +186,7 @@ if (!process.env.clientId || !process.env.clientSecret) {
   }
 
   function handleRecommendAttraction(action, message, output) {
-    const trip = findRecommendedAttraction(action.parameters.emotion);
+    const trip = findRecommendedAttraction(action.parameters.emotion, message.user);
     setLastRecommendationForUser(trip, message.user);
     output.push(buildRecommendationMessage(trip));
   }
