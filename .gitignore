@@ -1,5 +1,6 @@
 .db
 .env
+firebase-credentials.PRIVATE.json
 node_modules
 components/routes/_*
 .sass-cache/*
