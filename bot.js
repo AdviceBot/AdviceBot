@@ -10,6 +10,29 @@ if (!process.env.clientId || !process.env.clientSecret || !process.env.PORT) {
 var Botkit = require('botkit');
 var debug = require('debug')('botkit:main');
 var attractions = require('./attractions.json');
+var trips = require('./components/trips.js');
+
+// ta funkcja znajduje wszystkie wycieczki ktore byly wczesniej niz 2 dni od teraz
+// jest async wiec trzeba uzyc then
+/*trips.getRecentTripsToNotifyAsync().then((snapshot) => {
+    snapshot.forEach((doc) => {
+        console.log(doc.id, '=>', doc.data());
+        // W doc.data jest obiekt z bazy:
+        // {
+        //     date: Timestamp,
+        //     attraction: "Wawel Cathedral",
+        //     user: "UDDJ0HZ29",
+        //     notified: false
+        // }
+
+        // ustawiam wycieczke ze bot o niej napisal do uzytkownika
+        // trzeba to zrobic zeby nie pisac 100 razy do kogos o ta sama wycieczke
+        trips.setTripAsNotified(doc.id);
+    });
+})
+.catch((err) => {
+    console.log('Error getting documents', err);
+});*/
 
 var bot_options = {
     clientId: process.env.clientId,
@@ -129,9 +152,24 @@ if (!process.env.clientId || !process.env.clientSecret) {
     });
   }
 
-  function findRecommendedAttraction(emotion) {
+  //TODO: ugly hack, keep last recommendation in memory
+  // Should probably be stored in conversation context
+  const recommendationsByUser = new Map();
+  function setLastRecommendationForUser(trip, user) {
+      recommendationsByUser.set(user, trip);
+  }
+
+  function getLastRecommendationForUser(user) {
+    return recommendationsByUser.get(user);
+  }
+
+  function findRecommendedAttraction(emotion, user) {
+    const lastTrip = getLastRecommendationForUser(user);
+    const lastTripName = lastTrip ? lastTrip.name : null;
+
     const trips = attractions.trips;
     const tripsForEmotion = trips
+        .filter(trip => trip.name != lastTripName)
         .filter(trip => trip.emotions.includes(emotion));
 
     if (tripsForEmotion.length === 0)
@@ -147,6 +185,23 @@ if (!process.env.clientId || !process.env.clientSecret) {
     return `How about *${trip.name}*?. \nHere is the location: ${trip.address}. Do you want to go?`;
   }
 
+  function handleRecommendAttraction(action, message, output) {
+    const trip = findRecommendedAttraction(action.parameters.emotion, message.user);
+    setLastRecommendationForUser(trip, message.user);
+    output.push(buildRecommendationMessage(trip));
+  }
+
+  function handleAcceptAttraction(message) {
+    const user = message.user;
+    const trip = getLastRecommendationForUser(user);
+    if (!trip) {
+        console.error('Unexpected - last recommendation not found for user: ', user);
+        return;
+    }
+
+    trips.store(trip.name, user);
+  }
+
   var normalizedPath = require("path").join(__dirname, "skills");
   require("fs").readdirSync(normalizedPath).forEach(function(file) {
     require("./skills/" + file)(controller, watsonMiddleware);
@@ -158,13 +213,16 @@ if (!process.env.clientId || !process.env.clientSecret) {
     } else {
         const output = message.watsonData.output.text;
 
-        console.log(message.watsonData);
         if (message.watsonData.actions) {
             const actions = message.watsonData.actions;
             for (action of actions) {
-                if (action.name == 'recommendAttraction') {
-                    const trip = findRecommendedAttraction(action.parameters.emotion);
-                    output.push(buildRecommendationMessage(trip));
+                switch(action.name) {
+                    case 'recommendAttraction':
+                        handleRecommendAttraction(action, message, output);
+                        break;
+                    case 'acceptAttraction':
+                        handleAcceptAttraction(message);
+                        break;
                 }
             }
         }
