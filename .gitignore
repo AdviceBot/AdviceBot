@@ -1,6 +1,9 @@
 .db
 .env
+.envDev
 firebase-credentials.PRIVATE.json
+firebase-credentials.json
+promisify-0.4.0.tgz
 node_modules
 components/routes/_*
 .sass-cache/*

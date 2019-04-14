@@ -1,5 +1,5 @@
 var env = require('node-env-file');
-env(__dirname + '/.env');
+env(__dirname + '/.envDev');
 
 
 if (!process.env.clientId || !process.env.clientSecret || !process.env.PORT) {
@@ -14,7 +14,9 @@ var trips = require('./components/trips.js');
 
 // ta funkcja znajduje wszystkie wycieczki ktore byly wczesniej niz 2 dni od teraz
 // jest async wiec trzeba uzyc then
-/*trips.getRecentTripsToNotifyAsync().then((snapshot) => {
+
+const getTripsInfo = () => trips.getRecentTripsToNotifyAsync()
+.then((snapshot) => {
     snapshot.forEach((doc) => {
         console.log(doc.id, '=>', doc.data());
         // W doc.data jest obiekt z bazy:
@@ -27,12 +29,12 @@ var trips = require('./components/trips.js');
 
         // ustawiam wycieczke ze bot o niej napisal do uzytkownika
         // trzeba to zrobic zeby nie pisac 100 razy do kogos o ta sama wycieczke
-        trips.setTripAsNotified(doc.id);
+        // trips.setTripAsNotified(doc.id);
     });
 })
 .catch((err) => {
     console.log('Error getting documents', err);
-});*/
+});
 
 var bot_options = {
     clientId: process.env.clientId,
@@ -233,6 +235,61 @@ if (!process.env.clientId || !process.env.clientSecret) {
   });
 
 }
+
+// const axios = require('axios');
+
+
+// let users;
+
+// const sendGreetingsToUsers = async () => {
+//   try {
+//     let res = await axios({
+//       url: 'https://slack.com/api/users.list?token=xoxb-454395630640-497513087108-557dkWFjN0iYnGLrJLRKzlTO&pretty=1',
+//       method: 'get',
+//       timeout: 8000,
+//       headers: {
+//           'Content-Type': 'application/json',
+//       }
+//   })
+//   if(res.status == 200){
+//     const memberIds = res.data.members.map(member => member.id);
+//     // sendGreetings(memberIds);
+//   }
+//   return res.data
+//   } catch (error) {
+//     console.error(error)
+//   }
+// };
+//adam
+const memberIds = ['UDF3HUM9Q'];
+//adam monika olek
+// const memberIds = ['UDF3HUM9Q', 'UDEDC3CUF', 'UDDJ0HZ29'];
+
+// const memberIds = ['UDF3HUM9Q', 'UDEDC3CUF', 'UDDJ0HZ29', 'UDCBZGEN4', 'UDCQAANC8', 'UDCUA6VA8', 'UDDBJ506L', 'UDDJL43GS', 'UDE0QLHHT', 'UDE410VQU', 'UDEA8AL3X', 'UDEESA4JZ', 'UDEEUAS2X', 'UDEJQAPF1', 'UE79CPNUR' ];
+// let scenario;
+const sendGreetings = (memberIds) => {
+    scenario = 3
+    memberIds.forEach(id => {
+        const bot = controller.spawn({
+            token: 'xoxb-454395630640-497513087108-557dkWFjN0iYnGLrJLRKzlTO',
+        });
+        bot.say({
+            text: "Hi, I'm ~Skynet~ TripBot, your guide around city. I can help you choose your next interesting place to see in Cracow. Want to see something in town?",
+            channel: id,
+        });
+    });
+}
+
+var schedule = require('node-schedule');
+schedule.scheduleJob('1 * * * * *', function () {
+    console.log('The answer to life, the universe, and everything!');
+    sendGreetings(memberIds);
+});
+
+schedule.scheduleJob('1 * * * * *', function () {
+  console.log('The answer to life, the universe, and everything!');
+  getTripsInfo();
+});
 
 
 function usage_tip() {
