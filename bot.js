@@ -256,7 +256,7 @@ const sendGreetings = (memberIds) => {
     memberIds.forEach(id => {
         scenario[id] = 1;
         const bot = controller.spawn({
-            token: 'xoxb-454395630640-497513087108-557dkWFjN0iYnGLrJLRKzlTO',
+            token: process.env.botToken,
         });
         bot.say({
             text: "Hi, I'm ~Skynet~ TripBot, your guide around city. I can help you choose your next interesting place to see in Cracow. Want to see something in town?",
