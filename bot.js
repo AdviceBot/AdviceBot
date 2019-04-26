@@ -1,5 +1,6 @@
 var env = require('node-env-file');
 env(__dirname + '/.env');
+const { content } = require('./blocks/content');
 
 
 if (!process.env.clientId || !process.env.clientSecret || !process.env.PORT) {
@@ -14,27 +15,22 @@ var trips = require('./components/trips.js');
 
 // ta funkcja znajduje wszystkie wycieczki ktore byly wczesniej niz 2 dni od teraz
 // jest async wiec trzeba uzyc then
-/*trips.getRecentTripsToNotifyAsync().then((snapshot) => {
+
+const getTripsInfo = () => trips.getRecentTripsToNotifyAsync()
+.then((snapshot) => {
     snapshot.forEach((doc) => {
         console.log(doc.id, '=>', doc.data());
-        // W doc.data jest obiekt z bazy:
-        // {
-        //     date: Timestamp,
-        //     attraction: "Wawel Cathedral",
-        //     user: "UDDJ0HZ29",
-        //     notified: false
-        // }
-
-        // ustawiam wycieczke ze bot o niej napisal do uzytkownika
-        // trzeba to zrobic zeby nie pisac 100 razy do kogos o ta sama wycieczke
+        const trip = doc.data();
+        if (!trip.notified) askUserTrip(trip.user, trip.attraction);
         trips.setTripAsNotified(doc.id);
     });
 })
 .catch((err) => {
     console.log('Error getting documents', err);
-});*/
+});
 
 var bot_options = {
+    interactive_replies: true,
     clientId: process.env.clientId,
     clientSecret: process.env.clientSecret,
     clientSigningSecret: process.env.clientSigningSecret,
@@ -139,6 +135,7 @@ if (!process.env.clientId || !process.env.clientSecret) {
   }
 
   watsonMiddleware.before = function(message, assistantPayload, callback) {
+    assistantPayload.context.scenario = scenario[message.user] ? scenario[message.user] : 1;
     invokeToneAsync(message, toneAnalyzer).then((tone)=> {
 
         if (!assistantPayload.context) assistantPayload.context = {};
@@ -226,14 +223,59 @@ if (!process.env.clientId || !process.env.clientSecret) {
                 }
             }
         }
-
-        bot.reply(message, output.join('\n'));
+        bot.reply(message, content(output.join('\n')));
 
     }
   });
 
 }
 
+let scenario = {};
+const sendGreetings = (memberIds) => {
+    // scenario = 3
+    memberIds.forEach(id => {
+        scenario[id] = 1;
+        const bot = controller.spawn({
+            token: process.env.botToken,
+        });
+        bot.say({
+            text: "Hi, I'm ~Skynet~ TripBot, your guide around city. I can help you choose your next interesting place to see in Cracow. Want to see something in town?",
+            channel: id,
+        });
+    });
+}
+
+const askUserTrip = (user, attraction) => {
+  scenario[user] = 3;
+  const bot = controller.spawn({
+    token: process.env.botToken,
+});
+    bot.say({
+        text: `Hi, how was ${attraction}?`,
+        channel: user,
+    });
+
+}
+
+var schedule = require('node-schedule');
+
+//adam
+// const memberIds = ['UDF3HUM9Q'];
+//adam monika olek
+// const memberIds = ['UDF3HUM9Q', 'UDEDC3CUF', 'UDDJ0HZ29'];
+// all
+const memberIds = ['UDF3HUM9Q', 'UDEDC3CUF', 'UDDJ0HZ29', 'UDCBZGEN4', 'UDCQAANC8', 'UDCUA6VA8', 'UDDBJ506L', 'UDDJL43GS', 'UDE0QLHHT', 'UDE410VQU', 'UDEA8AL3X', 'UDEESA4JZ', 'UDEEUAS2X', 'UDEJQAPF1', 'UE79CPNUR' ];
+// send greetings on moday 12 30
+schedule.scheduleJob('1 30 12 * * 1', function () {
+    console.log('Send greetings!');
+    sendGreetings(memberIds);
+});
+
+// check trips on 12:50 each day
+schedule.scheduleJob('1 50 12 * * *', function () {
+  console.log('Get trips info!');
+  getTripsInfo();
+});
 
 function usage_tip() {
     console.log('~~~~~~~~~~');
