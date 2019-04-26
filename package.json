@@ -39,5 +39,8 @@
     "slack"
   ],
   "author": "ben@howdy.ai",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.11.3"
+  }
 }
