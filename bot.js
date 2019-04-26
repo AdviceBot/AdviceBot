@@ -1,5 +1,5 @@
 var env = require('node-env-file');
-env(__dirname + '/.envDev');
+env(__dirname + '/.env');
 const { content } = require('./blocks/content');
 
 
