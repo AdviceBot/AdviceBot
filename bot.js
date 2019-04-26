@@ -1,5 +1,6 @@
 var env = require('node-env-file');
 env(__dirname + '/.envDev');
+const { content } = require('./blocks/content');
 
 
 if (!process.env.clientId || !process.env.clientSecret || !process.env.PORT) {
@@ -20,16 +21,7 @@ const getTripsInfo = () => trips.getRecentTripsToNotifyAsync()
     snapshot.forEach((doc) => {
         console.log(doc.id, '=>', doc.data());
         const trip = doc.data();
-        // W doc.data jest obiekt z bazy:
-        // {
-        //     date: Timestamp,
-        //     attraction: "Wawel Cathedral",
-        //     user: "UDDJ0HZ29",
-        //     notified: false
-        // }
         if (!trip.notified) askUserTrip(trip.user, trip.attraction);
-        // ustawiam wycieczke ze bot o niej napisal do uzytkownika
-        // trzeba to zrobic zeby nie pisac 100 razy do kogos o ta sama wycieczke
         trips.setTripAsNotified(doc.id);
     });
 })
@@ -38,6 +30,7 @@ const getTripsInfo = () => trips.getRecentTripsToNotifyAsync()
 });
 
 var bot_options = {
+    interactive_replies: true,
     clientId: process.env.clientId,
     clientSecret: process.env.clientSecret,
     clientSigningSecret: process.env.clientSigningSecret,
@@ -138,11 +131,7 @@ if (!process.env.clientId || !process.env.clientSecret) {
         obj[item.tone_id] = item.score;
         return obj;
     }, {});
-    const maxTone = Object.keys(tone).reduce((a, b) => tone[a] > tone[b] ?
-            a : b);
-    return {
-        maxTone: tone[maxTone]
-    };
+    return tone;
   }
 
   watsonMiddleware.before = function(message, assistantPayload, callback) {
@@ -234,22 +223,13 @@ if (!process.env.clientId || !process.env.clientSecret) {
                 }
             }
         }
-
-        bot.reply(message, output.join('\n'));
+        bot.reply(message, content(output.join('\n')));
 
     }
   });
 
 }
 
-// const axios = require('axios');
-
-
-//adam
-const memberIds = ['UDF3HUM9Q'];
-//adam monika olek
-// const memberIds = ['UDF3HUM9Q', 'UDEDC3CUF', 'UDDJ0HZ29'];
-// const memberIds = ['UDF3HUM9Q', 'UDEDC3CUF', 'UDDJ0HZ29', 'UDCBZGEN4', 'UDCQAANC8', 'UDCUA6VA8', 'UDDBJ506L', 'UDDJL43GS', 'UDE0QLHHT', 'UDE410VQU', 'UDEA8AL3X', 'UDEESA4JZ', 'UDEEUAS2X', 'UDEJQAPF1', 'UE79CPNUR' ];
 let scenario = {};
 const sendGreetings = (memberIds) => {
     // scenario = 3
@@ -271,7 +251,7 @@ const askUserTrip = (user, attraction) => {
     token: process.env.botToken,
 });
     bot.say({
-        text: `Hi, did you go for ${attraction}?`,
+        text: `Hi, how was ${attraction}?`,
         channel: user,
     });
 
@@ -279,17 +259,23 @@ const askUserTrip = (user, attraction) => {
 
 var schedule = require('node-schedule');
 
+//adam
+// const memberIds = ['UDF3HUM9Q'];
+//adam monika olek
+// const memberIds = ['UDF3HUM9Q', 'UDEDC3CUF', 'UDDJ0HZ29'];
+// all
+const memberIds = ['UDF3HUM9Q', 'UDEDC3CUF', 'UDDJ0HZ29', 'UDCBZGEN4', 'UDCQAANC8', 'UDCUA6VA8', 'UDDBJ506L', 'UDDJL43GS', 'UDE0QLHHT', 'UDE410VQU', 'UDEA8AL3X', 'UDEESA4JZ', 'UDEEUAS2X', 'UDEJQAPF1', 'UE79CPNUR' ];
+// send greetings on moday 12 30
+schedule.scheduleJob('1 30 12 * * 1', function () {
+    console.log('Send greetings!');
+    sendGreetings(memberIds);
+});
 
-// schedule.scheduleJob('1 * * * * *', function () {
-//     console.log('Send greetings!');
-//     sendGreetings(memberIds);
-// });
-
-schedule.scheduleJob('1 * * * * *', function () {
+// check trips on 12:50 each day
+schedule.scheduleJob('1 50 12 * * *', function () {
   console.log('Get trips info!');
   getTripsInfo();
 });
-
 
 function usage_tip() {
     console.log('~~~~~~~~~~');
