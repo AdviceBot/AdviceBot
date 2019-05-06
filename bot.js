@@ -135,10 +135,9 @@ if (!process.env.clientId || !process.env.clientSecret) {
   }
 
   watsonMiddleware.before = function(message, assistantPayload, callback) {
+    if (!assistantPayload.context) assistantPayload.context = {};
     assistantPayload.context.scenario = scenario[message.user] ? scenario[message.user] : 1;
     invokeToneAsync(message, toneAnalyzer).then((tone)=> {
-
-        if (!assistantPayload.context) assistantPayload.context = {};
         assistantPayload.context.tone = simplifyTone(tone);
 
         callback(null, assistantPayload);
