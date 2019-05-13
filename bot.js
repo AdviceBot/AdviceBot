@@ -222,7 +222,7 @@ if (!process.env.clientId || !process.env.clientSecret) {
                 }
             }
         }
-        bot.reply(message, content(output.join('\n')));
+        bot.reply(message, output.join('\n'));
 
     }
   });

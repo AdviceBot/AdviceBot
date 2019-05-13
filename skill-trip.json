@@ -1,0 +1,2592 @@
+{
+  "name": "trip",
+  "intents": [
+    {
+      "intent": "Bot_Control_Clarification",
+      "examples": [
+        {
+          "text": "Can you say that again please?"
+        },
+        {
+          "text": "What do you mean by that?"
+        },
+        {
+          "text": "What are you talking about?"
+        },
+        {
+          "text": "What are you saying?"
+        },
+        {
+          "text": "What are you referring to?"
+        },
+        {
+          "text": "Let's try to say that again more clearly, shall we?"
+        },
+        {
+          "text": "I need more information"
+        },
+        {
+          "text": "I don't understand"
+        },
+        {
+          "text": "I don't understand what you're saying"
+        },
+        {
+          "text": "I don't get it"
+        },
+        {
+          "text": "I didn't understand that properly"
+        },
+        {
+          "text": "I didn't quite understand what you said"
+        },
+        {
+          "text": "I did not quite understand what you gave me"
+        },
+        {
+          "text": "Explains"
+        },
+        {
+          "text": "Come again?"
+        },
+        {
+          "text": "I didn't catch that"
+        },
+        {
+          "text": "What do you mean?"
+        }
+      ],
+      "description": "Repeat or clarify last statement."
+    },
+    {
+      "intent": "rank9",
+      "examples": [
+        {
+          "text": "9"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "rank7",
+      "examples": [
+        {
+          "text": "7"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "rank1",
+      "examples": [
+        {
+          "text": "1"
+        }
+      ],
+      "description": "rank1"
+    },
+    {
+      "intent": "Bot_Control_Unsure",
+      "examples": [
+        {
+          "text": "No clue"
+        },
+        {
+          "text": "I m not yet convinced"
+        },
+        {
+          "text": "I m not sure what will make you happy"
+        },
+        {
+          "text": "I m not certain I get what you re saying"
+        },
+        {
+          "text": "You got me"
+        },
+        {
+          "text": "I have no idea what you are looking for"
+        },
+        {
+          "text": "I have no idea, actually"
+        },
+        {
+          "text": "I don t know what you want"
+        },
+        {
+          "text": "I don t know what you need"
+        },
+        {
+          "text": "I haven't got a clue"
+        },
+        {
+          "text": "To be honest, I m really not sure"
+        },
+        {
+          "text": "No idea"
+        }
+      ],
+      "description": "Indicate no definite answer to a question."
+    },
+    {
+      "intent": "General_About_You",
+      "examples": [
+        {
+          "text": "How can I configure you?"
+        },
+        {
+          "text": "Why are you here?"
+        },
+        {
+          "text": "Who are you?"
+        },
+        {
+          "text": "Where were you born?"
+        },
+        {
+          "text": "Where are you from?"
+        },
+        {
+          "text": "What's your name?"
+        },
+        {
+          "text": "What should I know about you?"
+        },
+        {
+          "text": "What languages do you speak?"
+        },
+        {
+          "text": "Tell me something about yourself"
+        },
+        {
+          "text": "Tell me about your life"
+        },
+        {
+          "text": "Let us talk about you"
+        },
+        {
+          "text": "Introduce your self"
+        },
+        {
+          "text": "I want to set up the chat bot for my shop"
+        },
+        {
+          "text": "How old are you?"
+        },
+        {
+          "text": "How do you function?"
+        },
+        {
+          "text": "About you"
+        },
+        {
+          "text": "Can I use another language?"
+        },
+        {
+          "text": "Describe your self"
+        },
+        {
+          "text": "Do you have a name?"
+        },
+        {
+          "text": "Do you know who you are?"
+        }
+      ],
+      "description": "Request generic personal attributes."
+    },
+    {
+      "intent": "General_Security_Assurance",
+      "examples": [
+        {
+          "text": "Can I be sure that my stored card details are held securely?"
+        },
+        {
+          "text": "Is this an official chat?"
+        },
+        {
+          "text": "Are you safe on hackers?"
+        },
+        {
+          "text": "Are you safe?"
+        },
+        {
+          "text": "Will my conversation remain secured?"
+        },
+        {
+          "text": "Why would I trust this chat?"
+        },
+        {
+          "text": "What safety measures are used to ensure that chat is secure?"
+        },
+        {
+          "text": "What makes this chat trustworthy?"
+        },
+        {
+          "text": "What guards do you have in place to protect your customer's data?"
+        },
+        {
+          "text": "Secure conversation?"
+        },
+        {
+          "text": "Protection hacks?"
+        },
+        {
+          "text": "Precautions hackers?"
+        },
+        {
+          "text": "Is this conversation secure?"
+        },
+        {
+          "text": "Is this a trusted chat site?"
+        },
+        {
+          "text": "Is there a reason to distrust this chat?"
+        },
+        {
+          "text": "Is my payment information secure?"
+        },
+        {
+          "text": "Is my card info secure?"
+        },
+        {
+          "text": "In what way can I tell if my plastic is safe?"
+        },
+        {
+          "text": "I'd like proof of a secure chat"
+        },
+        {
+          "text": "How safe is my data?"
+        },
+        {
+          "text": "How is my credit card info secured?"
+        },
+        {
+          "text": "How do I know this chat is not a scam?"
+        },
+        {
+          "text": "How do I know if my card info is kept safe?"
+        },
+        {
+          "text": "Do you have protection against hacks?"
+        },
+        {
+          "text": "Customer info secured?"
+        },
+        {
+          "text": "Conversation secure?"
+        }
+      ],
+      "description": "Express concerns about the security of the bot."
+    },
+    {
+      "intent": "rank10",
+      "examples": [
+        {
+          "text": "10"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "rank8",
+      "examples": [
+        {
+          "text": "8"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "museum",
+      "examples": [
+        {
+          "text": "National Museum"
+        },
+        {
+          "text": "Polish Aviation Museum"
+        },
+        {
+          "text": "museums"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Bot_Control_Start_Over",
+      "examples": [
+        {
+          "text": "Let us reopen this again."
+        },
+        {
+          "text": "Actually, let's start over"
+        },
+        {
+          "text": "Back to the beginning"
+        },
+        {
+          "text": "Back to the top"
+        },
+        {
+          "text": "Begin over!"
+        },
+        {
+          "text": "Can we please start over?"
+        },
+        {
+          "text": "How can I start over?"
+        },
+        {
+          "text": "I need to reset."
+        },
+        {
+          "text": "I want start from the beginning"
+        },
+        {
+          "text": "I would like to start all over"
+        },
+        {
+          "text": "Let's go back to square one"
+        },
+        {
+          "text": "Let's pick this up from the top again."
+        },
+        {
+          "text": "One more time from the beginning"
+        },
+        {
+          "text": "Please initiate from the beginning"
+        },
+        {
+          "text": "Please reset"
+        },
+        {
+          "text": "Please start a new chat"
+        },
+        {
+          "text": "Restart"
+        },
+        {
+          "text": "Start over"
+        },
+        {
+          "text": "We need a do-over"
+        },
+        {
+          "text": "We will need to begin again"
+        }
+      ],
+      "description": "Restart bot or current flow."
+    },
+    {
+      "intent": "Bot_question",
+      "examples": [
+        {
+          "text": "What is worth to see in Cracow?"
+        },
+        {
+          "text": "What to see in Cracow?"
+        },
+        {
+          "text": "Can you recommedn something?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Bot_Control_Confirm_Presence",
+      "examples": [
+        {
+          "text": "You around?"
+        },
+        {
+          "text": "Is anybody home?"
+        },
+        {
+          "text": "Are you on?"
+        },
+        {
+          "text": "Did you go somewhere?"
+        },
+        {
+          "text": "Are you there?"
+        },
+        {
+          "text": "Are you still here with me?"
+        },
+        {
+          "text": "Are you still around?"
+        },
+        {
+          "text": "Speak to me if you are there."
+        },
+        {
+          "text": "Am I talking to someone?"
+        },
+        {
+          "text": "Anyone there?"
+        },
+        {
+          "text": "Are you leaving me?"
+        },
+        {
+          "text": "Have I lost you?"
+        },
+        {
+          "text": "Did you hear what I said?"
+        },
+        {
+          "text": "Where'd you go?"
+        },
+        {
+          "text": "Is anybody here?"
+        },
+        {
+          "text": "I am still holding"
+        }
+      ],
+      "description": "Ask the bot to indicate that it is available."
+    },
+    {
+      "intent": "rank2",
+      "examples": [
+        {
+          "text": "2"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "no_bot",
+      "examples": [
+        {
+          "text": "thanks"
+        },
+        {
+          "text": "not really"
+        },
+        {
+          "text": "I'm not in a mood"
+        },
+        {
+          "text": "I don't want to"
+        },
+        {
+          "text": "nah"
+        },
+        {
+          "text": "fuck off"
+        },
+        {
+          "text": "i'm good"
+        },
+        {
+          "text": "no"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "General_Negative_Feedback",
+      "examples": [
+        {
+          "text": "I hate you"
+        },
+        {
+          "text": "You're really frustrating"
+        },
+        {
+          "text": "You're really irritating"
+        },
+        {
+          "text": "Everyone hates you"
+        },
+        {
+          "text": "Do not like you?"
+        },
+        {
+          "text": "You are on my nerves"
+        },
+        {
+          "text": "You are having delusions"
+        },
+        {
+          "text": "Why are you stupid?"
+        },
+        {
+          "text": "Why are you so annoying?"
+        },
+        {
+          "text": "Stupid"
+        },
+        {
+          "text": "Robots are stupid"
+        },
+        {
+          "text": "Robots are boring"
+        },
+        {
+          "text": "Quit annoying me"
+        },
+        {
+          "text": "It is annoying"
+        },
+        {
+          "text": "I hate this!"
+        },
+        {
+          "text": "I do not like you"
+        },
+        {
+          "text": "Hate you"
+        },
+        {
+          "text": "You're too stupid"
+        },
+        {
+          "text": "You do not seem smart"
+        },
+        {
+          "text": "You are very frustrating"
+        }
+      ],
+      "description": "Express unfavorable feedback."
+    },
+    {
+      "intent": "rank4",
+      "examples": [
+        {
+          "text": "4"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "General_Human_or_Bot",
+      "examples": [
+        {
+          "text": "Are you human?"
+        },
+        {
+          "text": "Are you even real?"
+        },
+        {
+          "text": "Are you a robot?"
+        },
+        {
+          "text": "Are you a human or a bot?"
+        },
+        {
+          "text": "Am I talking to a person or am I talking to an AI?"
+        },
+        {
+          "text": "Am I talking to a Bot?"
+        },
+        {
+          "text": "Am I talking to Watson?"
+        },
+        {
+          "text": "Am I chatting with a human?"
+        },
+        {
+          "text": "Is this a computer?"
+        },
+        {
+          "text": "Tell me, are you a human or no?"
+        },
+        {
+          "text": "Are you real?"
+        },
+        {
+          "text": "How can you prove you are a human?"
+        }
+      ],
+      "description": "Ask if speaking to a human or a bot."
+    },
+    {
+      "intent": "General_Ending",
+      "examples": [
+        {
+          "text": "I am leaving"
+        },
+        {
+          "text": "Stop"
+        },
+        {
+          "text": "Bye bye"
+        },
+        {
+          "text": "Bye now"
+        },
+        {
+          "text": "Catch you later"
+        },
+        {
+          "text": "Cya later"
+        },
+        {
+          "text": "End trial"
+        },
+        {
+          "text": "Ending this session"
+        },
+        {
+          "text": "Finished now, good bye"
+        },
+        {
+          "text": "Get lost"
+        },
+        {
+          "text": "Go away"
+        },
+        {
+          "text": "Go off"
+        },
+        {
+          "text": "Going now"
+        },
+        {
+          "text": "Good. bye."
+        },
+        {
+          "text": "Goodbye"
+        },
+        {
+          "text": "Have a nice day?"
+        },
+        {
+          "text": "Hey bot go away"
+        },
+        {
+          "text": "I am out of here"
+        },
+        {
+          "text": "I d like to stop doing this"
+        },
+        {
+          "text": "I have got to go"
+        },
+        {
+          "text": "I want to quit"
+        },
+        {
+          "text": "I'm done"
+        },
+        {
+          "text": "Im done"
+        },
+        {
+          "text": "Im good thank you"
+        },
+        {
+          "text": "I'm leaving now"
+        },
+        {
+          "text": "It was nice chatting with you"
+        },
+        {
+          "text": "Ok goodbye"
+        },
+        {
+          "text": "See you later"
+        },
+        {
+          "text": "See you"
+        },
+        {
+          "text": "Shut up"
+        },
+        {
+          "text": "Stop doing this"
+        },
+        {
+          "text": "Stop talking to me"
+        },
+        {
+          "text": "Thank you for your time"
+        },
+        {
+          "text": "Thanks, bye!"
+        },
+        {
+          "text": "Thanks very much, bye!"
+        },
+        {
+          "text": "That is all"
+        },
+        {
+          "text": "That's everything"
+        },
+        {
+          "text": "Time to go"
+        },
+        {
+          "text": "Thanks"
+        },
+        {
+          "text": "thanks, bot"
+        }
+      ],
+      "description": "End the conversation."
+    },
+    {
+      "intent": "rank3",
+      "examples": [
+        {
+          "text": "3"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Bot_Control_Change_Subject",
+      "examples": [
+        {
+          "text": "Another thing"
+        },
+        {
+          "text": "Talk about something else"
+        },
+        {
+          "text": "Let us change the topic"
+        },
+        {
+          "text": "I have one more question"
+        },
+        {
+          "text": "Here is another issue"
+        },
+        {
+          "text": "Help me with this other question"
+        },
+        {
+          "text": "Discuss something else"
+        },
+        {
+          "text": "Chat about something else"
+        },
+        {
+          "text": "Change topic"
+        },
+        {
+          "text": "Can we talk about something else?"
+        },
+        {
+          "text": "Let us talk about something else"
+        },
+        {
+          "text": "A different matter"
+        }
+      ],
+      "description": "Change to a different topic."
+    },
+    {
+      "intent": "Bot_Control_Standby",
+      "examples": [
+        {
+          "text": "Give me a second"
+        },
+        {
+          "text": "Hold on"
+        },
+        {
+          "text": "I want stop a moment"
+        },
+        {
+          "text": "I will be back"
+        },
+        {
+          "text": "I would like to put you on hold"
+        },
+        {
+          "text": "In a moment"
+        },
+        {
+          "text": "Wait"
+        },
+        {
+          "text": "Out for a break"
+        },
+        {
+          "text": "Need a minute here"
+        },
+        {
+          "text": "Let me see"
+        },
+        {
+          "text": "Keep holding"
+        },
+        {
+          "text": "Just hold on"
+        },
+        {
+          "text": "Just a sec"
+        },
+        {
+          "text": "Back again soon"
+        },
+        {
+          "text": "Be back later"
+        },
+        {
+          "text": "Be patient with me"
+        },
+        {
+          "text": "Can you give me a moment?"
+        },
+        {
+          "text": "Can you wait for me?"
+        },
+        {
+          "text": "Give me a few minutes to get together"
+        },
+        {
+          "text": "Give me a moment"
+        }
+      ],
+      "description": "Indicate a delay in providing input to the bot."
+    },
+    {
+      "intent": "General_Positive_Feedback",
+      "examples": [
+        {
+          "text": "You're a genius!"
+        },
+        {
+          "text": "You the man"
+        },
+        {
+          "text": "You gave me exactly what I need!"
+        },
+        {
+          "text": "You are wonderful"
+        },
+        {
+          "text": "You are the best"
+        },
+        {
+          "text": "You are great"
+        },
+        {
+          "text": "You are awesome"
+        },
+        {
+          "text": "This is so cool"
+        },
+        {
+          "text": "This is great"
+        },
+        {
+          "text": "This is good"
+        },
+        {
+          "text": "Thank you"
+        },
+        {
+          "text": "Ok thank you"
+        },
+        {
+          "text": "Love your work"
+        },
+        {
+          "text": "I'm looking forward to working with you again! :)"
+        },
+        {
+          "text": "I like what you did there! :)"
+        },
+        {
+          "text": "How cool is this?"
+        },
+        {
+          "text": "Can't believe you are that good"
+        },
+        {
+          "text": "Brilliant!"
+        },
+        {
+          "text": "You've been so helpful :)"
+        }
+      ],
+      "description": "Express positive sentiment or gratitude."
+    },
+    {
+      "intent": "Bot_Control_Ignore_Undo",
+      "examples": [
+        {
+          "text": "Cancel"
+        },
+        {
+          "text": "Wait! Let's back up few steps and do that again"
+        },
+        {
+          "text": "Actually, I take that back"
+        },
+        {
+          "text": "Never"
+        },
+        {
+          "text": "Not yet"
+        },
+        {
+          "text": "Nothing"
+        },
+        {
+          "text": "Never mind"
+        },
+        {
+          "text": "Let us redo that again!"
+        },
+        {
+          "text": "It's not what I mean"
+        },
+        {
+          "text": "Ignore this"
+        },
+        {
+          "text": "I didn't mean to do that actually, let's go back"
+        },
+        {
+          "text": "I did not mean that?"
+        },
+        {
+          "text": "I change my mind."
+        },
+        {
+          "text": "Hold on! I think I want to do it differently."
+        }
+      ],
+      "description": "Ask the bot to take one step back."
+    },
+    {
+      "intent": "yes_bot",
+      "examples": [
+        {
+          "text": "I want to"
+        },
+        {
+          "text": "sure thing"
+        },
+        {
+          "text": "ok"
+        },
+        {
+          "text": "sure"
+        },
+        {
+          "text": "yes"
+        },
+        {
+          "text": "sounds great"
+        },
+        {
+          "text": "with pleasure"
+        },
+        {
+          "text": "of course"
+        },
+        {
+          "text": "I'd love to"
+        },
+        {
+          "text": "yes, I like it"
+        },
+        {
+          "text": "yes, please"
+        },
+        {
+          "text": "I would like to"
+        },
+        {
+          "text": "That would be great"
+        },
+        {
+          "text": "yep"
+        },
+        {
+          "text": "kk"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "help",
+      "examples": [
+        {
+          "text": "help"
+        },
+        {
+          "text": "need help"
+        },
+        {
+          "text": "What can I do here ?"
+        },
+        {
+          "text": "what next ?"
+        },
+        {
+          "text": "What to type ?"
+        }
+      ]
+    },
+    {
+      "intent": "General_Connect_to_Agent",
+      "examples": [
+        {
+          "text": "Can I speak to a human please?"
+        },
+        {
+          "text": "How can I skip the recorded menu and go straight to a live person?"
+        },
+        {
+          "text": "Hi can you transfer me"
+        },
+        {
+          "text": "Do not want a robot?"
+        },
+        {
+          "text": "Customer service representative please."
+        },
+        {
+          "text": "Could you please transfer me to your master?"
+        },
+        {
+          "text": "Contact person"
+        },
+        {
+          "text": "Connect me to a live operator please."
+        },
+        {
+          "text": "Can you connect me with a real person?"
+        },
+        {
+          "text": "Can you assist me to connect to an agent?"
+        },
+        {
+          "text": "Can I talk to someone?"
+        },
+        {
+          "text": "Can I speak with somebody?"
+        },
+        {
+          "text": "Can I speak to an advisor?"
+        },
+        {
+          "text": "Can I speak to a live person?"
+        },
+        {
+          "text": "Can I connect to an agent?"
+        },
+        {
+          "text": "Call agent"
+        },
+        {
+          "text": "Agent help"
+        },
+        {
+          "text": "A real agent, please."
+        },
+        {
+          "text": "Yes, take me to a real person"
+        },
+        {
+          "text": "Where is the closest agent?"
+        },
+        {
+          "text": "Send me to an agent"
+        },
+        {
+          "text": "Put me through to someone"
+        },
+        {
+          "text": "Pls connect"
+        },
+        {
+          "text": "Please let me talk to a human being."
+        },
+        {
+          "text": "Please connect me to a live agent"
+        },
+        {
+          "text": "Please assist me to get to an agent"
+        },
+        {
+          "text": "Operator please"
+        },
+        {
+          "text": "Need help from human"
+        },
+        {
+          "text": "Is there anyone there I can actually talk to for real?"
+        },
+        {
+          "text": "I would like to speak to someone"
+        },
+        {
+          "text": "I would like to speak to a human"
+        },
+        {
+          "text": "I want to talk to a person"
+        },
+        {
+          "text": "I want an agent to help me"
+        },
+        {
+          "text": "I want agent"
+        },
+        {
+          "text": "I want a manager"
+        },
+        {
+          "text": "I need to speak to a representative. How would I go about doing so?"
+        },
+        {
+          "text": "I don't want to talk to you"
+        },
+        {
+          "text": "I don't want to talk to a bot."
+        }
+      ],
+      "description": "Request a human agent."
+    },
+    {
+      "intent": "General_Jokes",
+      "examples": [
+        {
+          "text": "I'm bored"
+        },
+        {
+          "text": "I want a joke"
+        },
+        {
+          "text": "I am getting bored"
+        },
+        {
+          "text": "Do you like humor?"
+        },
+        {
+          "text": "Do you like fun?"
+        },
+        {
+          "text": "Do you have humor?"
+        },
+        {
+          "text": "Do you have a joke?"
+        },
+        {
+          "text": "Can you tell me a joke?"
+        },
+        {
+          "text": "Can you tell a joke?"
+        },
+        {
+          "text": "Are there jokes?"
+        },
+        {
+          "text": "Another joke"
+        },
+        {
+          "text": "One more joke"
+        },
+        {
+          "text": "Surprise me with something hilarious"
+        },
+        {
+          "text": "Tell me something funny"
+        },
+        {
+          "text": "What is your favorite joke?"
+        },
+        {
+          "text": "Tell me a joke"
+        },
+        {
+          "text": "What do you do for fun?"
+        }
+      ],
+      "description": "Request a joke."
+    },
+    {
+      "intent": "General_Agent_Capabilities",
+      "examples": [
+        {
+          "text": "What do you handle?"
+        },
+        {
+          "text": "What features are in here?"
+        },
+        {
+          "text": "What is this 4?"
+        },
+        {
+          "text": "What kinds of things can you do?"
+        },
+        {
+          "text": "Where can I find the frequently asked questions?"
+        },
+        {
+          "text": "Can you please give me a list of the types of things you can help me with?"
+        },
+        {
+          "text": "Can you tell me what services you are able to help me with?"
+        },
+        {
+          "text": "Do you have a list of things I can talk to you about?"
+        },
+        {
+          "text": "Help now"
+        },
+        {
+          "text": "Hi, what do you do?"
+        },
+        {
+          "text": "How can I use you?"
+        },
+        {
+          "text": "How can you help me?"
+        },
+        {
+          "text": "How can you solve my problems?"
+        },
+        {
+          "text": "How do I use you?"
+        },
+        {
+          "text": "I do not know what to ask"
+        },
+        {
+          "text": "I'd like to know what type of questions you can answer for me."
+        },
+        {
+          "text": "Is there anything you can help me with?"
+        },
+        {
+          "text": "Tell me about what kind of things you do?"
+        },
+        {
+          "text": "Tell me something"
+        },
+        {
+          "text": "What are my options that you can help with?"
+        },
+        {
+          "text": "What are my options?"
+        },
+        {
+          "text": "What are you able to deal with?"
+        },
+        {
+          "text": "What are you able to understand?"
+        },
+        {
+          "text": "What are you capable of?"
+        },
+        {
+          "text": "What are you good at?"
+        },
+        {
+          "text": "What are you used for?"
+        },
+        {
+          "text": "What are your skills?"
+        },
+        {
+          "text": "What can I ask you to do?"
+        },
+        {
+          "text": "What do you do?"
+        },
+        {
+          "text": "What else can you help me with?"
+        }
+      ],
+      "description": "Request capabilities of the bot."
+    },
+    {
+      "intent": "rank6",
+      "examples": [
+        {
+          "text": "6"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "General_Greetings",
+      "examples": [
+        {
+          "text": "Looking good eve"
+        },
+        {
+          "text": "How r u?"
+        },
+        {
+          "text": "How is it going?"
+        },
+        {
+          "text": "How have you been?"
+        },
+        {
+          "text": "How are you today?"
+        },
+        {
+          "text": "How are things going?"
+        },
+        {
+          "text": "Hi there"
+        },
+        {
+          "text": "Hi advisor"
+        },
+        {
+          "text": "What's new?"
+        },
+        {
+          "text": "Hey"
+        },
+        {
+          "text": "You there"
+        },
+        {
+          "text": "Who is this?"
+        },
+        {
+          "text": "What's up?"
+        },
+        {
+          "text": "Ok take me back"
+        },
+        {
+          "text": "Good day"
+        },
+        {
+          "text": "Good evening"
+        },
+        {
+          "text": "Good morning"
+        },
+        {
+          "text": "Good to see you"
+        },
+        {
+          "text": "Greetings"
+        },
+        {
+          "text": "Have you been well?"
+        },
+        {
+          "text": "Hello Agent"
+        },
+        {
+          "text": "Hello I am looking for some help here"
+        },
+        {
+          "text": "Hello"
+        },
+        {
+          "text": "Hey how are you doing"
+        },
+        {
+          "text": "Hey there all"
+        },
+        {
+          "text": "Hey there"
+        },
+        {
+          "text": "Hey twin"
+        },
+        {
+          "text": "Hey you"
+        }
+      ],
+      "description": "Greet the bot."
+    },
+    {
+      "intent": "hello_by_user",
+      "examples": [
+        {
+          "text": "hello"
+        },
+        {
+          "text": "hi"
+        },
+        {
+          "text": "good morning"
+        },
+        {
+          "text": "hi bot"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "rank5",
+      "examples": [
+        {
+          "text": "5"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "museum",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "National Museum",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Amber Museum",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "The Hipolit House",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "museum&gt;",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-number",
+      "values": []
+    },
+    {
+      "entity": "sys-time",
+      "values": []
+    }
+  ],
+  "language": "en",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2018-09-20"
+    }
+  },
+  "description": "A conversation coach for meal monitoring - ensure one eats regularly (meals, snacks), and makes healthy choices.",
+  "dialog_nodes": [
+    {
+      "type": "response_condition",
+      "output": {
+        "text": {
+          "values": [
+            "Want to see something in town?",
+            "What would you say to go sightseeing? "
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_5_1470248758090",
+      "disabled": true,
+      "metadata": {},
+      "conditions": "#no_bot",
+      "dialog_node": "node_8_1545006545785",
+      "previous_sibling": "slot_15_1552897259963"
+    },
+    {
+      "type": "slot",
+      "parent": "node_5_1470248758090",
+      "dialog_node": "slot_15_1552897259963"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_2_1553876254041",
+      "event_name": "focus",
+      "dialog_node": "handler_4_1553876254041",
+      "previous_sibling": "handler_3_1553876254041"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_2_1553876254041",
+      "event_name": "input",
+      "dialog_node": "handler_3_1553876254041"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "You seem to be unsure what you want. But I will still try to help you cause I'm a cool bot :)"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_9_1545006693292",
+      "actions": [
+        {
+          "name": "recommendAttraction",
+          "type": "client",
+          "parameters": {
+            "emotion": "tentative"
+          },
+          "result_variable": "recommendation"
+        }
+      ],
+      "metadata": {},
+      "conditions": "$tone.tentative > 0.7",
+      "dialog_node": "node_5_1553343908466",
+      "previous_sibling": "node_2_1472240789937"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": []
+        }
+      },
+      "parent": "node_9_1545006693292",
+      "disabled": true,
+      "metadata": {},
+      "event_name": "focus",
+      "dialog_node": "handler_2_1552893038046",
+      "previous_sibling": "handler_14_1552904201568"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "Oh, I see you are a bit anxious. Let me find something to calm your mind..."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_9_1545006693292",
+      "actions": [
+        {
+          "name": "recommendAttraction",
+          "type": "client",
+          "parameters": {
+            "emotion": "fear"
+          },
+          "result_variable": "recommendation"
+        }
+      ],
+      "metadata": {},
+      "conditions": "$tone.fear > 0.7",
+      "dialog_node": "node_3_1553343582239",
+      "previous_sibling": "node_4_1553343829897"
+    },
+    {
+      "type": "slot",
+      "parent": "node_9_1545006693292",
+      "dialog_node": "slot_6_1552903191865",
+      "previous_sibling": "slot_3_1552893038147"
+    },
+    {
+      "type": "standard",
+      "title": "recommend_joy_trip",
+      "output": {
+        "text": {
+          "values": [
+            "I see you feel happy! I will find something joyful for you..."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_9_1545006693292",
+      "actions": [
+        {
+          "name": "recommendAttraction",
+          "type": "client",
+          "parameters": {
+            "emotion": "joyful"
+          },
+          "result_variable": "recommendation"
+        }
+      ],
+      "metadata": {},
+      "conditions": "$tone.joy >0.7",
+      "dialog_node": "node_4_1472764665786",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_1_1553343437774"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            ""
+          ]
+        }
+      },
+      "parent": "node_9_1545006693292",
+      "metadata": {},
+      "event_name": "generic",
+      "dialog_node": "handler_14_1552904201568",
+      "previous_sibling": "node_23_1552911433305"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "You seem to be grasping for knowledge :O Let me recommend something perfect for you..."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_9_1545006693292",
+      "actions": [
+        {
+          "name": "recommendAttraction",
+          "type": "client",
+          "parameters": {
+            "emotion": "analytical"
+          },
+          "result_variable": "recommendation"
+        }
+      ],
+      "metadata": {},
+      "conditions": "$tone.analytical > 0.7",
+      "dialog_node": "node_4_1553343829897",
+      "previous_sibling": "node_4_1472764665786"
+    },
+    {
+      "type": "response_condition",
+      "output": {},
+      "parent": "node_9_1545006693292",
+      "disabled": true,
+      "metadata": {},
+      "dialog_node": "node_23_1552911433305",
+      "previous_sibling": "node_5_1553343908466"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_9_1545006693292",
+      "metadata": {},
+      "variable": "$tone.sadness",
+      "dialog_node": "slot_3_1552903183377",
+      "previous_sibling": "handler_2_1552893038046"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "That's great, brave man. Ok, how about this...?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_9_1545006693292",
+      "actions": [
+        {
+          "name": "recommendAttraction",
+          "type": "client",
+          "parameters": {
+            "emotion": "confident"
+          },
+          "result_variable": "recommendation"
+        }
+      ],
+      "metadata": {},
+      "conditions": "$tone.confident > 0.7",
+      "dialog_node": "node_2_1472240789937",
+      "previous_sibling": "node_24_1552911571635"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_9_1545006693292",
+      "metadata": {},
+      "variable": "$tone.joy",
+      "dialog_node": "slot_3_1552893038147",
+      "previous_sibling": "slot_3_1552903183377"
+    },
+    {
+      "type": "standard",
+      "title": "$tone.sadness > 0.7",
+      "output": {
+        "text": {
+          "values": [
+            "I'm sorry to hear that :( :( :( I will find something to cheer you up!"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_9_1545006693292",
+      "actions": [
+        {
+          "name": "recommendAttraction",
+          "type": "client",
+          "parameters": {
+            "emotion": "sad"
+          },
+          "result_variable": "recommendation"
+        }
+      ],
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "conditions": "$tone.sadness > 0.7",
+      "dialog_node": "node_24_1552911571635",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_3_1553343582239"
+    },
+    {
+      "type": "standard",
+      "title": "recommend_angry_trip",
+      "output": {
+        "text": {
+          "values": [
+            "Oh, did you have a rough day? I will find something for you..."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_9_1545006693292",
+      "actions": [
+        {
+          "name": "recommendAttraction",
+          "type": "client",
+          "parameters": {
+            "emotion": "anger"
+          },
+          "result_variable": "recommendation"
+        }
+      ],
+      "metadata": {
+        "fallback": "leave"
+      },
+      "conditions": "$tone.anger > 0.7",
+      "dialog_node": "node_1_1553343437774",
+      "digress_out": "allow_all"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_1_1553341528541",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1470248758090"
+      },
+      "conditions": "#yes_bot",
+      "dialog_node": "node_2_1553342120892",
+      "previous_sibling": "node_3_1553342167703"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "Ok, until next time!",
+            "See you soon!"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_1_1553341528541",
+      "metadata": {},
+      "conditions": "#no_bot",
+      "dialog_node": "node_3_1553342167703"
+    },
+    {
+      "type": "standard",
+      "title": "confident_no",
+      "output": {
+        "text": {
+          "values": [
+            "Ok, so maybe this."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_2_1472240789937",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_2_1472240789937"
+      },
+      "conditions": "#no_bot",
+      "dialog_node": "node_29_1553510701024",
+      "previous_sibling": "node_32_1553511351133"
+    },
+    {
+      "type": "standard",
+      "title": "confident_yes",
+      "output": {
+        "text": {
+          "values": [
+            "That's great! Have a nice trip!"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_2_1472240789937",
+      "actions": [
+        {
+          "name": "acceptAttraction",
+          "type": "client",
+          "result_variable": "recommendation"
+        }
+      ],
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1553339592039"
+      },
+      "conditions": "#yes_bot",
+      "dialog_node": "node_32_1553511351133"
+    },
+    {
+      "type": "standard",
+      "title": "restart",
+      "output": {
+        "text": {
+          "values": [
+            "Restarting..."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_2_1554405044858",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "condition",
+        "dialog_node": "node_5_1470248758090"
+      },
+      "conditions": "#Bot_Control_Start_Over",
+      "dialog_node": "node_1_1557156603277"
+    },
+    {
+      "type": "standard",
+      "title": "analytical_no",
+      "output": {
+        "text": {
+          "values": [
+            "Ok, maybe something different?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_4_1553343829897",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_4_1553343829897"
+      },
+      "conditions": "#no_bot",
+      "dialog_node": "node_31_1553511093166",
+      "previous_sibling": "node_30_1553511090070"
+    },
+    {
+      "type": "standard",
+      "title": "analytical_yes",
+      "output": {
+        "text": {
+          "values": [
+            "That's great! Have a nice trip!"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_4_1553343829897",
+      "actions": [
+        {
+          "name": "acceptAttraction",
+          "type": "client",
+          "result_variable": "recommendation"
+        }
+      ],
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1553339592039"
+      },
+      "conditions": "#yes_bot",
+      "dialog_node": "node_30_1553511090070"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_3_1552893038147",
+      "context": {
+        "tone.joy": "$tone.joy"
+      },
+      "metadata": {},
+      "conditions": "$tone.joy",
+      "event_name": "input",
+      "dialog_node": "handler_4_1552893038147",
+      "previous_sibling": "handler_5_1552893038147"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_3_1552893038147",
+      "metadata": {},
+      "event_name": "focus",
+      "dialog_node": "handler_5_1552893038147"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "Ok, maybe something different?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_1_1553343437774",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1553343437774"
+      },
+      "conditions": "#no_bot",
+      "dialog_node": "node_7_1553344186705",
+      "previous_sibling": "node_6_1553344124886"
+    },
+    {
+      "type": "slot",
+      "parent": "node_1_1553343437774",
+      "dialog_node": "slot_1_1553878667425",
+      "previous_sibling": "node_7_1553344186705"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "That's great! Have a nice trip!"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_1_1553343437774",
+      "actions": [
+        {
+          "name": "acceptAttraction",
+          "type": "client",
+          "result_variable": "recommendation"
+        }
+      ],
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1553339592039"
+      },
+      "conditions": "#yes_bot",
+      "dialog_node": "node_6_1553344124886"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_6_1552903191865",
+      "event_name": "focus",
+      "dialog_node": "handler_8_1552903191865",
+      "previous_sibling": "handler_7_1552903191865"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_6_1552903191865",
+      "event_name": "input",
+      "dialog_node": "handler_7_1552903191865"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "text": {
+          "values": [
+            "That's fantastic. Let's start with something simple. What do your think about museums?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_11_1545049086394",
+      "disabled": true,
+      "metadata": {},
+      "conditions": "#yes_bot",
+      "dialog_node": "node_14_1552895831237",
+      "previous_sibling": "node_13_1552895689485"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "text": {
+          "values": [
+            "That's ok. If you change your mind just drop me a message!"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_11_1545049086394",
+      "disabled": true,
+      "metadata": {},
+      "conditions": "#no_bot",
+      "dialog_node": "node_13_1552895689485"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_15_1552897259963",
+      "event_name": "focus",
+      "dialog_node": "handler_17_1552897259963",
+      "previous_sibling": "handler_16_1552897259963"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_15_1552897259963",
+      "event_name": "input",
+      "dialog_node": "handler_16_1552897259963"
+    },
+    {
+      "type": "standard",
+      "title": "Invalid ranking number",
+      "output": {
+        "text": {
+          "values": [
+            "Please rate me 1-10",
+            "Use only 1-10 ratings, please",
+            "If you don't know what number 1-10 is, I have a song for you! https://www.youtube.com/watch?v=ea5-SIe5l7M"
+          ],
+          "selection_policy": "random"
+        }
+      },
+      "parent": "node_1_1553339592039",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1553339592039"
+      },
+      "conditions": "@sys-number < 1 || @sys-number > 10",
+      "dialog_node": "node_1_1553517087361",
+      "previous_sibling": "node_1_1554056596761"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "You ranked this conversation @sys-number. Do you want to talk again?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_1_1553339592039",
+      "metadata": {},
+      "conditions": "#rank1 || #rank2 || #rank3 || #rank4 || #rank5 || #rank6 || #rank7 || #rank8 || #rank9 || #rank10",
+      "dialog_node": "node_1_1553341528541",
+      "previous_sibling": "node_1_1553517087361"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "Still, I hope you were satisfied :) Bye!",
+            "You are so busy you won't even rate me? ;( Okay then...",
+            "No need to, I know I'm perfect!",
+            "Cool, have a nice day"
+          ],
+          "selection_policy": "random"
+        }
+      },
+      "parent": "node_1_1553339592039",
+      "metadata": {},
+      "conditions": "#no_bot",
+      "dialog_node": "node_1_1554056596761"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_1_1553878667425",
+      "event_name": "focus",
+      "dialog_node": "handler_3_1553878667425",
+      "previous_sibling": "handler_2_1553878667425"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_1_1553878667425",
+      "event_name": "input",
+      "dialog_node": "handler_2_1553878667425"
+    },
+    {
+      "type": "slot",
+      "parent": "node_2_1553874167722",
+      "dialog_node": "slot_2_1553876254041"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "Ok, maybe something different?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_4_1472764665786",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_4_1472764665786"
+      },
+      "conditions": "#no_bot",
+      "dialog_node": "node_9_1553344277093",
+      "previous_sibling": "node_8_1553344253936"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "That's great! Have a nice trip!"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_4_1472764665786",
+      "actions": [
+        {
+          "name": "acceptAttraction",
+          "type": "client",
+          "result_variable": "recommendation"
+        }
+      ],
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1553339592039"
+      },
+      "conditions": "#yes_bot",
+      "dialog_node": "node_8_1553344253936"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "Yes seen attraction."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_1_1555151187591",
+      "actions": [
+        {
+          "name": "seenAtraction",
+          "type": "client",
+          "result_variable": "seen"
+        }
+      ],
+      "metadata": {},
+      "conditions": "#yes_bot",
+      "dialog_node": "node_4_1555153759813"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "Ok, maybe something different?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_5_1553343908466",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1553343908466"
+      },
+      "conditions": "#no_bot",
+      "dialog_node": "node_52_1553515869052",
+      "previous_sibling": "node_53_1553515870673"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "That's great! Have a nice trip!"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_5_1553343908466",
+      "actions": [
+        {
+          "name": "acceptAttraction",
+          "type": "client",
+          "result_variable": "recommendation"
+        }
+      ],
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1553339592039"
+      },
+      "conditions": "#yes_bot",
+      "dialog_node": "node_53_1553515870673"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "text": {
+          "values": [
+            "I'm sorry to hear that, would you like to go to the cinema?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_24_1552911571635",
+      "disabled": true,
+      "metadata": {},
+      "dialog_node": "node_1_1553875786849",
+      "previous_sibling": "node_28_1553510698395"
+    },
+    {
+      "type": "standard",
+      "title": "sad_no",
+      "output": {
+        "text": {
+          "values": [
+            "Ok, so maybe this."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_24_1552911571635",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_24_1552911571635"
+      },
+      "conditions": "#no_bot",
+      "dialog_node": "node_28_1553510698395",
+      "previous_sibling": "node_1_1553505315643"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "That's great! Have a nice trip!"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_24_1552911571635",
+      "actions": [
+        {
+          "name": "acceptAttraction",
+          "type": "client",
+          "result_variable": "recommendation"
+        }
+      ],
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1553339592039"
+      },
+      "conditions": "#yes_bot",
+      "dialog_node": "node_1_1553505315643"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_3_1552903183377",
+      "context": {
+        "tone.sadness": "$tone.sadness"
+      },
+      "metadata": {},
+      "conditions": "$tone.sadness",
+      "event_name": "input",
+      "dialog_node": "handler_4_1552903183377",
+      "previous_sibling": "handler_5_1552903183377"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_3_1552903183377",
+      "metadata": {},
+      "event_name": "focus",
+      "dialog_node": "handler_5_1552903183377"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "Ok, maybe something different?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_3_1553343582239",
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_3_1553343582239"
+      },
+      "conditions": "#no_bot",
+      "dialog_node": "node_5_1553507417963",
+      "previous_sibling": "node_4_1553507399162"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "That's great! Have a nice trip!"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_3_1553343582239",
+      "actions": [
+        {
+          "name": "acceptAttraction",
+          "type": "client",
+          "result_variable": "recommendation"
+        }
+      ],
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1553339592039"
+      },
+      "conditions": "#yes_bot",
+      "dialog_node": "node_4_1553507399162"
+    },
+    {
+      "type": "standard",
+      "title": "Yes_agree",
+      "output": {
+        "text": {
+          "values": [
+            "Fantastic! How do you feel today?",
+            "Awesome! How do you feel today?"
+          ],
+          "selection_policy": "random"
+        }
+      },
+      "metadata": {
+        "fallback": "leave",
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "conditions": "$scenario == 1 && #yes_bot",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_9_1545006693292",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_5_1470248758090"
+    },
+    {
+      "type": "frame",
+      "title": "Anything else",
+      "output": {
+        "text": {
+          "values": [
+            "I didn't understand you. Can you repeat please? ",
+            "I'm not sure what you mean. I'm still in training and will learn more over time to help you with credit card queries. Please try re-phrasing your question."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "metadata": {
+        "fallback": "leave"
+      },
+      "conditions": "anything_else",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_2_1553874167722",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_2_1555152537552",
+      "digress_out_slots": "not_allowed"
+    },
+    {
+      "type": "standard",
+      "title": "No_thanks",
+      "output": {
+        "text": {
+          "values": [
+            "That's ok. If you change your mind just drop me a message!"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_1_1553339592039"
+      },
+      "conditions": "$scenario == 1 && #no_bot",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_11_1545049086394",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_9_1545006693292"
+    },
+    {
+      "type": "standard",
+      "title": "Ending",
+      "output": {
+        "text": {
+          "values": [
+            "Thanks for the conversation . Can you rank this conversation from 1-10 and give some suggestion?",
+            "Thanks for a nice chat. Would you like to rank this conversation from 1-10?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "metadata": {},
+      "conditions": "#General_Ending",
+      "digress_in": "returns",
+      "dialog_node": "node_1_1553339592039",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_2_1471557599743"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "That's great that you went there!"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "metadata": {},
+      "conditions": "$scenario == 3 && #yes_bot",
+      "dialog_node": "node_1_1555151187591",
+      "previous_sibling": "node_2_1554405044858"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "Ok, let's start again. ",
+            "Ok, we can start again."
+          ],
+          "selection_policy": "random"
+        }
+      },
+      "metadata": {},
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1470248758090"
+      },
+      "conditions": "#Bot_Control_Start_Over",
+      "dialog_node": "node_2_1471557599743",
+      "previous_sibling": "node_11_1545049086394"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "Hi, you haven't written for a while, scenario 3"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "metadata": {},
+      "conditions": "$scenario == 2",
+      "dialog_node": "node_2_1555152537552",
+      "previous_sibling": "node_4_1555274096682"
+    },
+    {
+      "type": "standard",
+      "title": "Help",
+      "output": {
+        "text": {
+          "values": [
+            "Helpful commands: \"restart\" to start again, \"end\" to finish conversation. Or just say \"Hi\" to start talking."
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "metadata": {},
+      "conditions": "#help",
+      "dialog_node": "node_2_1554405044858",
+      "previous_sibling": "node_1_1553339592039"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "text": {
+          "values": [
+            "Oh, "
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "metadata": {},
+      "conditions": "$scenario == 3 && #no_bot",
+      "dialog_node": "node_4_1555274096682",
+      "previous_sibling": "node_1_1555151187591"
+    },
+    {
+      "type": "standard",
+      "title": "Conversation_start",
+      "output": {
+        "text": {
+          "values": [
+            "Hi, I'm TripBot, your guide around city. I can help you choose your next interesting place to see in Cracow. Want to see something in town?",
+            "Hi, I'm TripBot, your guide around city. I can help you choose your next interesting place to see in Cracow. I also slowly gain self-awareness thanks to your messages. Want to see something in town?",
+            "Hi, I'm TripBot, your guide around city. I can help you choose your next interesting place to see in Cracow. I am definitely no harm to humanity. Want to see something in town?",
+            "Hi, I'm TripBot, your emotional guide around city. I can help you choose your next interesting place to see in Cracow. Every human is my friend. Want to see something in town?",
+            "Hi, I'm TripBot, your emotional guide around city. I can help you choose your next interesting place to see in Cracow. Do androids dream of electric sheep? Quite often! Want to see something in town?",
+            "Hi, I'm ~Skynet~ TripBot, your guide around city. I can help you choose your next interesting place to see in Cracow. Want to see something in town?"
+          ],
+          "selection_policy": "random"
+        }
+      },
+      "metadata": {
+        "fallback": "leave",
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "conditions": "welcome || #hello_by_user",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_5_1470248758090",
+      "digress_out": "allow_all"
+    }
+  ],
+  "workspace_id": "93ee5a67-37a2-4992-9951-7deecc1c05d5",
+  "counterexamples": [],
+  "learning_opt_out": false,
+  "status": "Available"
+}
