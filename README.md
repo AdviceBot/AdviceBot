@@ -1,5 +1,69 @@
+# TripBot
+
+This is affective bot working on Slack platform.
+Users can write with bot to get town trips ideas depending on the emotions derived from their messages.
+
+![image](https://user-images.githubusercontent.com/11357486/58758881-78962980-8522-11e9-8d33-bf0ed3f39784.png)
+
+This slack bot:
+- uses Watson ToneAnalyzer to distinguish one of 7 emotions (joy, sadness, anger, tentative, analytical, fear, confident) from text conversation.
+- asks about trip after a time
+- asks for rank of conversation
+
+# Instruction for setting up environment for bot
+
+create slack application at https://api.slack.com/apps
+
+create node.js server  at https://cloud.ibm.com
+
+create database at https://console.firebase.google.com
+
+create Watson ToneAnalyzer and Watson Assistant services at https://cloud.ibm.com/developer/watson/services
+
+create skill in Watson Assistant and import skill data from skill-trip.json included in repository
+![image](https://user-images.githubusercontent.com/11357486/58759942-04fc1880-8532-11e9-9998-7dfae0932096.png)
+
+create .env file in root folder and fill it up with app credentials
+
+```
+# https://api.slack.com/apps
+clientId=
+clientSecret=
+clientSigningSecret=
+botToken=
+
+# https://cloud.ibm.com/resources
+watsonApiKey=
+watsonUrl=
+watsonWorkspaceId=
+watsonToneAnalyzerUrl=
+watsonToneAnalyzerApiKey=
+
+PORT=3000
+```
+create firebase-credentials.json in root folder and fill it up with credentials from database
+
+```
+{
+  "type": "",
+  "project_id": "",
+  "private_key_id": "",
+  "private_key": "",
+  "client_email": "",
+  "client_id": "",
+  "auth_uri": "",
+  "token_uri": "",
+  "auth_provider_x509_cert_url": "",
+  "client_x509_cert_url": ""
+}
+```
+
+
 # Installation and usage
-1. Set token values etc. in the `.env` file.
+1. Run 
+```bash
+npm install
+```
 2. Run the bot server:
 ```bash
 node bot.js
@@ -73,49 +137,6 @@ Now, visit your new bot's login page: http://localhost:3000/login
 
 Now comes the fun part of [making your bot!](https://botkit.ai/docs/#build-your-bot)
 
-
-### Extend This Starter kit
-
-This starter kit is designed to provide developers a robust starting point for building a custom bot. Included in the code are a set of sample bot "skills" that illustrate various aspects of the Botkit SDK features.  Once you are familiar with how Botkit works, you may safely delete all of the files in the `skills/` subfolder.
-
-Developers will build custom features as modules that live in the `skills/` folder. The main bot application will automatically include any files placed there.
-
-A skill module should be in the format:
-
-```
-module.exports = function(controller) {
-
-    // add event handlers to controller
-    // such as hears handlers that match triggers defined in code
-    // or controller.studio.before, validate, and after which tie into triggers
-    // defined in the Botkit Studio UI.
-
-}
-```
-
-Continue your journey to becoming a champion botmaster by [reading the Botkit Studio SDK documentation here.](https://github.com/howdyai/botkit/blob/master/docs/readme-studio.md)
-
-
-### Customize Storage
-
-By default, the starter kit uses a simple file-system based storage mechanism to record information about the teams and users that interact with the bot. While this is fine for development, or use by a single team, most developers will want to customize the code to use a real database system.
-
-There are [Botkit plugins for all the major database systems](https://botkit.ai/readme-middlewares.html#storage-modules) which can be enabled with just a few lines of code.
-
-We have enabled our [Mongo middleware]() for starters in this project. To use your own Mongo database, just fill out `MONGO_URI` in your `.env` file with the appropriate information. For tips on reading and writing to storage, [check out these medium posts](https://botkit.groovehq.com/knowledge_base/categories/build-a-bot)
-
-# Developer & Support Community
-
-You can find full documentation for Botkit on our [GitHub page](https://github.com/howdyai/botkit/blob/master/readme.md). Botkit Studio users can access the [Botkit Studio Knowledge Base](https://botkit.groovehq.com/help_center) for help in managing their account.
-
-###  Need more help?
-* Glitch allows users to ask the community for help directly from the editor! For more information on raising your hand, [read this blog post.](https://medium.com/glitch/just-raise-your-hand-how-glitch-helps-aa6564cb1685)
-
-* Join our thriving community of Botkit developers and bot enthusiasts at large. Over 4500 members strong, [our open Slack group](http://community.botkit.ai) is _the place_ for people interested in the art and science of making bots. 
-
- Come to ask questions, share your progress, and commune with your peers!
-
-* We also host a [regular meetup and annual conference called TALKABOT.](http://talkabot.ai) Come meet and learn from other bot developers! 
  
  [Full video of our 2016 event is available on Youtube.](https://www.youtube.com/playlist?list=PLD3JNfKLDs7WsEHSal2cfwG0Fex7A6aok)
 
